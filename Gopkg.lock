@@ -2,6 +2,15 @@
 
 
 [[projects]]
+  name = "github.com/docker/docker"
+  packages = [
+    "builder/dockerfile/command",
+    "builder/dockerfile/parser"
+  ]
+  revision = "092cba3727bb9b4a2f0e922cd6c0f93ea270e363"
+  version = "v1.13.1"
+
+[[projects]]
   branch = "master"
   name = "github.com/robmerrell/comandante"
   packages = ["."]
@@ -10,6 +19,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fe1e416c8e4f8f2ffc20420fba8fd4d632cd373d481a1b30cfd02004e6ae73db"
+  inputs-digest = "bfaf7686517872bbc8cda49cbc4964123c37c6cad33b4dd473adc51dbfec621c"
   solver-name = "gps-cdcl"
   solver-version = 1

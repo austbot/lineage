@@ -1,0 +1,2 @@
+gcr.io/k8s
+quay.io/ygrene/*
