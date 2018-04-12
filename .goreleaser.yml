@@ -5,7 +5,7 @@ builds:
       - linux
     goarch:
       - amd64
-  - ldflags: -s -w -X "main.goversion={{.Env.GOVERSION}}"
+  - ldflags: -s -w -X "main.goversion=go1.10.1"
 archive:
   format: tar.gz
   replacements:
