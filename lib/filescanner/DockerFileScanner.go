@@ -25,7 +25,7 @@ func FindFrom(commands []Command) ([]Command, error) {
 	for _, v := range commands {
 		if v.Cmd == "from" {
 			com = append(com, v)
-			break;
+			break
 		} else {
 			err = errors.New("Cant find from")
 		}
@@ -81,19 +81,23 @@ func whiteListResolver(whiteListPath string) (io.Reader, error) {
 
 //private checkers
 
-func dockerHubStdLibrary() {
-
+func isDockerHubImage(image string) bool {
+	return !(strings.Contains(image, "/"))
 }
 
 func whitelistMatch(list io.Reader, image string) bool {
 	var eof error
 	reader := bufio.NewReader(list)
 	var result = false
+	//iterate through the file line by line
 	for eof == nil {
 		line, er := reader.ReadBytes('\n')
 		eof = er
+		//get line lowercase and without the '\n'
 		lineStr := strings.TrimRight(strings.ToLower(string(line)), "\n")
+		//sanitize the incoming image
 		imageLower := strings.Trim(strings.ToLower(image), " \t\r")
+
 		if strings.Contains(lineStr, WildCard) {
 			lineWithoutStar := strings.TrimRight(lineStr, WildCard)
 			result = strings.Contains(imageLower, lineWithoutStar)

@@ -5,14 +5,14 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"lineage/lib/filescanner"
+	"github.com/austbot/lineage/lib/filescanner"
 	"strings"
 )
 
 func main() {
 	bin := comandante.New("lineage", "Validate Docker Image Ancestry")
 	bin.IncludeHelp()
-	scanDockerFile := comandante.NewCommand("scan-file", "Scan a Dockerfile", ScanDockerFileCtrl)
+	scanDockerFile := comandante.NewCommand("scan", "Scan a Dockerfile", ScanDockerFileCtrl)
 	scanDockerFile.FlagInit = func(set *flag.FlagSet) {
 		set.StringVar(&whiteListPath, "whitelist", "whitelist.txt", "A file path or url.")
 		set.StringVar(&dockerFilePath, "dockerfile", "Dockerfile", "A file path to a Dockerfile")
