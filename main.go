@@ -5,8 +5,8 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"lineage/lib/filescanner"
 	"strings"
+	"github.com/austbot/lineage/lib/filescanner"
 )
 
 func main() {

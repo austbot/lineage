@@ -48,7 +48,7 @@ func Scan(dockerFilePath string, whiteListPath string) (DockerFileScanResult, er
 		name := f.Value[0]
 		match = whitelistMatch(whitelist, name)
 		if match == true {
-			result.Messages = append(result.Messages, fmt.Sprint("Base Image: ", name, " Approved"))
+			result.Messages = append(result.Messages, fmt.Sprint("Base Image: ", name, " 	Approved"))
 		}
 	}
 	if match == false {
