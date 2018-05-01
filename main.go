@@ -9,6 +9,9 @@ import (
 	"github.com/austbot/lineage/lib/filescanner"
 )
 
+var whiteListPath string
+var dockerFilePath string
+
 func main() {
 	bin := comandante.New("lineage", "Validate Docker Image Ancestry")
 	bin.IncludeHelp()
@@ -24,18 +27,15 @@ func main() {
 	}
 }
 
-var whiteListPath string
-var dockerFilePath string
-
 func ScanDockerFileCtrl() error {
 	print("Input: ", dockerFilePath, " ", whiteListPath, "\n")
 	result, _ := filescanner.Scan(dockerFilePath, whiteListPath)
 	if len(result.Errors) > 0 {
-		fmt.Println("Result:", strings.Join(result.Errors, " "), "\n")
+		fmt.Println("Result:", strings.Join(result.Errors, " "))
 		os.Exit(1)
 	}
 	if len(result.Messages) > 0 {
-		fmt.Println("Result:", strings.Join(result.Messages, " "), "\n")
+		fmt.Println("Result:", strings.Join(result.Messages, " "))
 		os.Exit(0)
 	}
 	return nil

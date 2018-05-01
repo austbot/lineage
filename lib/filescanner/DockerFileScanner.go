@@ -97,7 +97,6 @@ func whitelistMatch(list io.Reader, image string) bool {
 		lineStr := strings.TrimRight(strings.ToLower(string(line)), "\n")
 		//sanitize the incoming image
 		imageLower := strings.Trim(strings.ToLower(image), " \t\r")
-
 		if strings.Contains(lineStr, WildCard) {
 			lineWithoutStar := strings.TrimRight(lineStr, WildCard)
 			result = strings.Contains(imageLower, lineWithoutStar)
